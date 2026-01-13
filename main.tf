@@ -1,6 +1,5 @@
 ## 4️⃣ main.tf
 
-```hcl
 resource "aws_security_group" "all_traffic_sg" {
   name        = "all-traffic-sg"
   description = "Allow all inbound and outbound traffic"
@@ -71,4 +70,3 @@ resource "aws_instance" "docker_ec2" {
     Name = "Terraform-Docker-EC2"
   }
 }
-```
