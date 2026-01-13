@@ -7,10 +7,10 @@ variable "aws_region" {
 }
 
 variable "instance_type" {
-  default = "t2.micro"
+  default = "t3.small"
 }
 
 variable "key_name" {
-  description = "Existing EC2 Key Pair name"
+  description = "Github-action-keypair"
 }
 ```
