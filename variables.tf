@@ -11,6 +11,6 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  description = "Github-action-keypair"
+  default = "Github-action-keypair"
 }
 ```
