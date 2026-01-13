@@ -21,13 +21,12 @@ resource "aws_security_group" "all_traffic_sg" {
 
 data "aws_ami" "ubuntu" {
   most_recent = true
+  owners      = ["919466768284"]
 
   filter {
-    name   = "name"
+    name   = "image-id"
     values = ["ami-0ecb62995f68bb549"]
   }
-
-  owners = ["amazon"]
 }
 
 resource "aws_instance" "docker_ec2" {
