@@ -19,7 +19,7 @@ resource "aws_security_group" "all_traffic_sg" {
 
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["919466768284"] # CORRECT: Official Canonical ID
+  owners      = ["099720109477"] # CORRECT: Official Canonical ID
 
   filter {
     name   = "name"
