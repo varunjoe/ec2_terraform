@@ -67,3 +67,35 @@ resource "aws_instance" "docker_ec2" {
     Name = "Terraform-Docker-EC2"
   }
 }
+-------------------------------------------
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+
+  required_version = ">= 1.2.0"
+ # ADD THIS BLOCK BELOW
+  backend "s3" {
+    bucket         = "919466768284-terraform-states"
+    key            = "ec2-project/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-lock"
+    encrypt        = true
+  }
+}
+
+provider "aws" {
+  region  = "us-east-1"
+}
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-0ecb62995f68bb549"
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "Terraform_Demo"
+  }
+}
